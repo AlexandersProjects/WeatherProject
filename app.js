@@ -4,6 +4,8 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
+app.use(express.static(__dirname));
+
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get("/", function(req, res) {
@@ -32,7 +34,7 @@ app.post("/" , function(req,res) {
             res.write(descriptionResult);
             res.write(temperatureResult);            
             res.write("<img src="+ weatherIconSource + " alt='Weather Icon'></img>");
-            
+
 
             console.log("The temperature is: " + weatherTemperature);
             console.log("The weather is: " + weatherDescription);
@@ -43,7 +45,7 @@ app.post("/" , function(req,res) {
 
         })
     })
-    // res.send("Server is up and running.");
+// res.send("Server is up and running.");
 })
 
 
